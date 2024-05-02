@@ -20,7 +20,7 @@ jobs:
         server-id: github # Value of the distributionManagement/repository/id field of the pom.xml
         settings-path: ${{ github.workspace }} # location for the settings.xml file
     - name: Build with Maven
-      run: mvn package
+      run: mvn -B package --file app/pom.xml
     - name: wrapper
       run: |
         wget https://tools.veracode.com/integrations/API-Wrappers/Java/bin/VeracodeJavaAPI.zip
