@@ -32,3 +32,18 @@ steps:
     optargs: '-deleteIncompleteScan 2'
     importResults: true
     maximumWaitTime: '60'
+- task: Veracode Flaw Importer@3
+  inputs:
+    ConnectionDetailsSelection: 'Credentials'
+    apiId: '$(API_ID)'
+    apiKey: '$(API_KEY)'
+    veracodeAppProfile: 'chetandemo5'
+    sandboxName: 'AzureDevops'
+    scanType: 'Static, SCA'
+    importType: 'All Flaws'
+    workItemType: 'Bug'
+    area: '$(system.teamProject)'
+    overwriteAreaPathInWorkItemsOnImport: true
+    iterationPath: '$(system.teamProject)'
+    overwriteIterationPath: true
+    flawImportLimit: '10'
